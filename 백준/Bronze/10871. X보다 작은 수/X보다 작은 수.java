@@ -1,21 +1,42 @@
-import java.util.Scanner;
-class Main {  
-  public static void main(String args[]) { 
-    Scanner sc = new Scanner(System.in);
-    
-    int num1=sc.nextInt();
-    int num2=sc.nextInt();
+import java.io.*;
+import java.util.StringTokenizer;
 
-    int arr[] =new int[num1];
+public class Main {
 
-    for (int i=0;i<num1;i++){
-      arr[i] =sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+        StringTokenizer st;
+        st = new StringTokenizer(br.readLine()," ");
+
+
+        int N = Integer.parseInt(st.nextToken());
+
+        int X = Integer.parseInt(st.nextToken());
+        int a[] = new int[N];
+        StringBuilder sb = new StringBuilder();
+        st = new StringTokenizer(br.readLine()," " );
+        for(int i=0;i<N;i++){
+
+            a[i]=Integer.parseInt(st.nextToken());
+
+        }
+
+
+
+        for(int i=0;i<N;i++){
+            if(a[i]<X){
+                sb.append(a[i]+" ");
+            }
+
+        }
+
+        bw.write(sb.toString());
+
+        br.close();
+
+        bw.close();
     }
 
-    for(int i=0;i<num1;i++){
-      if(arr[i]<num2){
-        System.out.print(arr[i]+" ");
-      }
-    }
-  } 
 }
